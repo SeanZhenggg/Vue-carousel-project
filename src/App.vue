@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h2>Carousel project</h2>
+    <!-- <carousel-transition-end :imgList="imgList"></carousel-transition-end> -->
+    <carousel-else-if :imgList="imgList"></carousel-else-if>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import carouselTransitionEnd from "./components/carouselTransitionEnd";
+import carouselElseIf from "./components/carouselElseIf";
 export default {
-  name: 'app',
+  data: function() {
+    return {
+      imgList: [
+        require("./assets/red.png"),
+        require("./assets/orange.png"),
+        require("./assets/yellow.png"),
+        require("./assets/blue.png"),
+        require("./assets/purple.png")
+      ]
+    };
+  },
   components: {
-    HelloWorld
+    carouselTransitionEnd,
+    carouselElseIf
   }
-}
+};
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
 </style>
